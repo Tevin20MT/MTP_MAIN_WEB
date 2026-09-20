@@ -425,255 +425,63 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-
     /* ================= CONTACT FORM ================= */
 
-    const contactForm =
-        document.getElementById(
-            "contactForm"
-        );
+const contactForm =
+    document.getElementById("contactForm");
 
+const contactSuccess =
+    document.getElementById("contactSuccess");
 
-    const contactSuccess =
-        document.getElementById(
-            "contactSuccess"
-        );
+if (contactForm) {
 
+    contactForm.addEventListener(
+        "submit",
+        async event => {
 
-    if (contactForm) {
+            event.preventDefault();
 
-        contactForm.addEventListener(
-            "submit",
-            async event => {
+            const submitButton =
+                contactForm.querySelector(
+                    'button[type="submit"]'
+                );
 
-                event.preventDefault();
+            /* Prevent double submission */
 
+            if (
+                submitButton &&
+                submitButton.disabled
+            ) {
+                return;
+            }
 
-                /* Check EmailJS */
+            /* Disable button */
 
-                if (
-                    typeof emailjs === "undefined"
-                ) {
+            if (submitButton) {
 
-                    alert(
-                        "Email service is currently unavailable. Please contact us directly."
+                submitButton.disabled = true;
+
+                submitButton.innerHTML =
+                    '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+            }
+
+            try {
+
+                const response =
+                    await fetch(
+                        contactForm.action,
+                        {
+                            method: "POST",
+                            body: new FormData(contactForm),
+                            headers: {
+                                "Accept": "application/json"
+                            }
+                        }
                     );
 
-                    return;
+                if (response.ok) {
 
-                }
-
-
-                /* Prevent double submission */
-
-                const submitButton =
-                    contactForm.querySelector(
-                        'button[type="submit"]'
-                    );
-
-
-                if (
-                    submitButton &&
-                    submitButton.disabled
-                ) {
-
-                    return;
-
-                }
-
-
-                /* Form values */
-
-                const firstName =
-                    contactForm
-                        .querySelector(
-                            '[name="firstName"]'
-                        )
-                        ?.value
-                        .trim() || "";
-
-
-                const lastName =
-                    contactForm
-                        .querySelector(
-                            '[name="lastName"]'
-                        )
-                        ?.value
-                        .trim() || "";
-
-
-                const email =
-                    contactForm
-                        .querySelector(
-                            '[name="email"]'
-                        )
-                        ?.value
-                        .trim() || "";
-
-
-                const phone =
-                    contactForm
-                        .querySelector(
-                            '[name="phone"]'
-                        )
-                        ?.value
-                        .trim() || "";
-
-
-                const subject =
-                    contactForm
-                        .querySelector(
-                            '[name="subject"]'
-                        )
-                        ?.value
-                        .trim() || "";
-
-
-                const message =
-                    contactForm
-                        .querySelector(
-                            '[name="message"]'
-                        )
-                        ?.value
-                        .trim() || "";
-
-
-                /* Validation */
-
-                if (
-                    !firstName ||
-                    !lastName ||
-                    !email ||
-                    !subject ||
-                    !message
-                ) {
-
-                    alert(
-                        "Please complete all required fields."
-                    );
-
-                    return;
-
-                }
-
-
-                /* Basic email validation */
-
-                const emailPattern =
-                    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-
-                if (
-                    !emailPattern.test(email)
-                ) {
-
-                    alert(
-                        "Please enter a valid email address."
-                    );
-
-                    return;
-
-                }
-
-
-                /* EmailJS settings */
-
-                const PUBLIC_KEY =
-                    "hbyKylhNhdNzw5t4";
-
-
-                const SERVICE_ID =
-                    "service_9stxcql";
-
-
-                const ADMIN_TEMPLATE =
-                    "template_w8wmhed";
-
-
-                const AUTO_REPLY_TEMPLATE =
-                    "template_z74lgj6";
-
-
-                try {
-
-                    /* Initialize EmailJS */
-
-                    emailjs.init({
-                        publicKey: PUBLIC_KEY
-                    });
-
-
-                    /* Disable button */
-
-                    if (submitButton) {
-
-                        submitButton.disabled = true;
-
-                        submitButton.innerHTML =
-                            '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-
-                    }
-
-
-                    /* Template parameters */
-
-                    const templateParams = {
-
-                        firstName: firstName,
-
-                        lastName: lastName,
-
-                        name:
-                            `${firstName} ${lastName}`,
-
-                        email: email,
-
-                        phone: phone,
-
-                        subject: subject,
-
-                        message: message,
-
-                        reply_to: email,
-
-                        time:
-                            new Date().toLocaleString(
-                                "en-ZA"
-                            )
-
-                    };
-
-
-                    /* Send notification to company */
-
-                    await emailjs.send(
-                        SERVICE_ID,
-                        ADMIN_TEMPLATE,
-                        templateParams
-                    );
-
-
-                    /* Send automatic reply to client */
-
-                    try {
-
-                        await emailjs.send(
-                            SERVICE_ID,
-                            AUTO_REPLY_TEMPLATE,
-                            templateParams
-                        );
-
-                    } catch (autoReplyError) {
-
-                        console.warn(
-                            "Automatic reply could not be sent:",
-                            autoReplyError
-                        );
-
-                    }
-
-
-                    /* Show success */
+                    /* Show success message */
 
                     if (contactSuccess) {
 
@@ -682,14 +490,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         contactSuccess.textContent =
                             "Thank you! Your message has been sent successfully.";
-
                     }
-
 
                     /* Reset form */
 
                     contactForm.reset();
-
 
                     /* Restore button */
 
@@ -699,11 +504,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         submitButton.innerHTML =
                             '<i class="fa-solid fa-paper-plane"></i> Send Message';
-
                     }
 
-
-                    /* Hide success after 7 seconds */
+                    /* Hide success message */
 
                     setTimeout(() => {
 
@@ -711,42 +514,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
                             contactSuccess.style.display =
                                 "none";
-
                         }
 
                     }, 7000);
 
+                } else {
 
-                } catch (error) {
-
-                    console.error(
-                        "EmailJS error:",
-                        error
+                    throw new Error(
+                        "Formspree submission failed."
                     );
-
-
-                    alert(
-                        "We could not send your message. Please try again or contact us directly."
-                    );
-
-
-                    if (submitButton) {
-
-                        submitButton.disabled = false;
-
-                        submitButton.innerHTML =
-                            '<i class="fa-solid fa-paper-plane"></i> Send Message';
-
-                    }
-
                 }
 
+            } catch (error) {
+
+                console.error(
+                    "Formspree error:",
+                    error
+                );
+
+                alert(
+                    "We could not send your message. Please try again or contact us directly."
+                );
+
+                /* Restore button */
+
+                if (submitButton) {
+
+                    submitButton.disabled = false;
+
+                    submitButton.innerHTML =
+                        '<i class="fa-solid fa-paper-plane"></i> Send Message';
+                }
             }
-        );
 
-    }
+        }
+    );
+}
 
-
+    
     /* ================= REQUIRED FIELD VALIDATION ================= */
 
     const requiredFields =
