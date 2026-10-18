@@ -266,6 +266,109 @@ button {
 }
 
 
+/* ================= TECHNOLOGY PARTNERS ================= */
+
+.partners-section {
+    padding: 28px 0 32px;
+    overflow: hidden;
+    background: linear-gradient(90deg, #0d0d0d, #171717 50%, #0d0d0d);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+
+.partners-heading {
+    margin-bottom: 18px;
+    color: var(--text-muted);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+
+.partners-marquee {
+    width: 100%;
+    overflow: hidden;
+}
+
+
+.partners-track,
+.partners-group {
+    display: flex;
+    align-items: center;
+}
+
+
+.partners-track {
+    width: max-content;
+    animation: partners-slide-right 28s linear infinite;
+}
+
+
+.partners-group {
+    flex: 0 0 auto;
+    justify-content: space-around;
+    gap: clamp(48px, 9vw, 140px);
+    min-width: 100vw;
+    padding: 0 clamp(28px, 7vw, 100px);
+}
+
+
+.partner-logo {
+    flex: 0 0 auto;
+    width: 150px;
+    height: 42px;
+    object-fit: contain;
+}
+
+
+.partner-hp {
+    width: 48px;
+    height: 48px;
+}
+
+
+.partner-hpe {
+    width: 120px;
+    filter: brightness(0) invert(1);
+}
+
+
+.partner-hikvision {
+    width: 170px;
+}
+
+
+.partner-tplink {
+    width: 48px;
+}
+
+
+@keyframes partners-slide-right {
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+
+.partners-marquee:hover .partners-track {
+    animation-play-state: paused;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    .partners-track {
+        animation: none;
+        transform: none;
+    }
+}
+
+
 .hero::before {
     content: "";
 
