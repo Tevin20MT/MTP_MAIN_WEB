@@ -3419,7 +3419,8 @@ button {
             }
 
             .projects-page .project-image {
-                height: 240px;
+                height: auto;
+                aspect-ratio: 8 / 5;
             }
 
             .projects-page .project-content {
@@ -3453,7 +3454,7 @@ button {
             }
 
             .projects-page .project-image {
-                height: 220px;
+                height: auto;
             }
 
             .projects-page .project-content {
