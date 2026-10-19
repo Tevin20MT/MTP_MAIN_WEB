@@ -135,13 +135,14 @@ button {
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
+    flex-shrink: 0;
 }
 
 
 .logo img {
-    width: 48px;
-    height: 48px;
+    width: 58px;
+    height: 58px;
     object-fit: contain;
 }
 
@@ -155,17 +156,43 @@ button {
 
 .logo-text strong {
     color: var(--gold);
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 800;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
+    white-space: nowrap;
 }
 
 
-.logo-text span {
+.brand-legal {
+    display: flex;
+    align-items: center;
+    gap: 6px;
     color: var(--white);
-    font-size: 11px;
+    font-size: 9px;
     font-weight: 600;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.8px;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+
+.brand-legal::before,
+.brand-legal::after {
+    content: "";
+    flex: 0 0 12px;
+    height: 2px;
+    background: var(--gold);
+}
+
+
+.logo-text small {
+    margin-top: 4px;
+    color: var(--gold);
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+    line-height: 1;
+    white-space: nowrap;
 }
 
 
@@ -1181,8 +1208,8 @@ button {
 
 
 .footer-logo img {
-    width: 45px;
-    height: 45px;
+    width: 58px;
+    height: 58px;
 
     object-fit: contain;
 }
@@ -1200,18 +1227,29 @@ button {
 .footer-logo strong {
     color: var(--gold);
 
-    font-size: 16px;
+    font-size: 18px;
 
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
 }
 
 
 .footer-logo span {
     color: var(--white);
 
-    font-size: 10px;
+    font-size: 9px;
 
+    letter-spacing: 1.8px;
+}
+
+
+.footer-logo small {
+    margin-top: 4px;
+    color: var(--gold);
+    font-size: 7px;
+    font-weight: 700;
     letter-spacing: 1.3px;
+    line-height: 1;
+    white-space: nowrap;
 }
 
 
@@ -1747,18 +1785,32 @@ button {
 
 
     .logo img {
-        width: 42px;
-        height: 42px;
+        width: 44px;
+        height: 44px;
     }
 
 
     .logo-text strong {
-        font-size: 14px;
+        font-size: 13px;
     }
 
 
-    .logo-text span {
-        font-size: 9px;
+    .brand-legal {
+        gap: 4px;
+        font-size: 7px;
+        letter-spacing: 1.2px;
+    }
+
+
+    .brand-legal::before,
+    .brand-legal::after {
+        flex-basis: 8px;
+    }
+
+
+    .logo-text small {
+        font-size: 5.5px;
+        letter-spacing: 1px;
     }
 
 
