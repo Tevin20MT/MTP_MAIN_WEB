@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://matsogotauprojects.co.za/</loc>
-    </url>
-      </urlset>
+  </url>
+  <url>
+    <loc>https://matsogotauprojects.co.za/MTP%20About%20Us.html</loc>
+  </url>
+  <url>
+    <loc>https://matsogotauprojects.co.za/MTP%20Service.html</loc>
+  </url>
+  <url>
+    <loc>https://matsogotauprojects.co.za/MTP%20Projects.html</loc>
+  </url>
+  <url>
+    <loc>https://matsogotauprojects.co.za/MTP%20Request%20a%20Quote.html</loc>
+  </url>
+  <url>
+    <loc>https://matsogotauprojects.co.za/MTP%20Contact%20Us.html</loc>
+  </url>
+</urlset>
