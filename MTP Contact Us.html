@@ -37,6 +37,9 @@
     <link rel="stylesheet"
         href="CSS/Style.css">
 
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcOoQAuAAAAAMKznksPEPS6AjObtZ3eiOdQ1yh3"
+        async defer></script>
+
 
     <!-- =====================================================
          CONTACT PAGE STYLES
@@ -407,7 +410,8 @@
                 <form id="contactForm"
                       class="contact-form"
                       action="https://formspree.io/f/mkjnblld"
-                      method="POST">
+                      method="POST"
+                      data-recaptcha-site-key="6LcOoQAuAAAAAMKznksPEPS6AjObtZ3eiOdQ1yh3">
                       
                       <input type="hidden"
                              name="_subject"

@@ -467,12 +467,39 @@ if (contactForm) {
 
             try {
 
+                const siteKey =
+                    contactForm.dataset.recaptchaSiteKey;
+
+                if (!siteKey || !window.grecaptcha) {
+                    throw new Error(
+                        "reCAPTCHA could not be loaded."
+                    );
+                }
+
+                const recaptchaToken =
+                    await new Promise((resolve, reject) => {
+                        window.grecaptcha.ready(() => {
+                            window.grecaptcha.execute(
+                                siteKey,
+                                { action: "contact_submit" }
+                            ).then(resolve, reject);
+                        });
+                    });
+
+                const formData =
+                    new FormData(contactForm);
+
+                formData.set(
+                    "g-recaptcha-response",
+                    recaptchaToken
+                );
+
                 const response =
                     await fetch(
                         contactForm.action,
                         {
                             method: "POST",
-                            body: new FormData(contactForm),
+                            body: formData,
                             headers: {
                                 "Accept": "application/json"
                             }
