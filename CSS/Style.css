@@ -372,6 +372,13 @@ button {
 }
 
 
+.partner-lenovo,
+.partner-ubiquiti {
+    width: 48px;
+    height: 48px;
+}
+
+
 @keyframes partners-slide-right {
     from {
         transform: translateX(-50%);
