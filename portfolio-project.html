@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Read project details from MATSOGO TAU PROJECTS.">
+    <meta name="author" content="MATSOGO TAU PROJECTS (PTY) LTD">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Portfolio Project | MATSOGO TAU PROJECTS">
+    <meta property="og:description" content="Read about a MATSOGO TAU PROJECTS project.">
+    <meta property="og:url" content="https://matsogotauprojects.co.za/portfolio-project.html">
+    <meta property="og:image" content="https://matsogotauprojects.co.za/images/projects/website-project.jpg">
+    <link rel="canonical" href="https://matsogotauprojects.co.za/portfolio-project.html">
+    <title>Portfolio Project | MATSOGO TAU PROJECTS</title>
+    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="CSS/Style.css">
+    <link rel="stylesheet" href="CSS/Portfolio.css">
+</head>
+
+<body class="portfolio-page portfolio-inner-page">
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/favicon.png" alt="MATSOGO TAU PROJECTS Logo">
+                <div class="logo-text">
+                    <strong>MATSOGO TAU</strong>
+                    <span class="brand-legal">PROJECTS (PTY) LTD</span>
+                    <small>SUPPLY &bull; IT SERVICES &bull; SOLUTIONS</small>
+                </div>
+            </a>
+            <button class="menu-btn" id="menuBtn" aria-label="Open navigation menu"
+                aria-controls="navLinks" aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+                <a href="index.html"><i class="fa-solid fa-house"></i>Home</a>
+                <a href="MTP About Us.html"><i class="fa-solid fa-building"></i>About Us</a>
+                <a href="MTP Service.html"><i class="fa-solid fa-gears"></i>Services</a>
+                <a href="MTP Projects.html"><i class="fa-solid fa-briefcase"></i>Projects</a>
+                <a href="portfolio.html" class="active" aria-current="page">
+                    <i class="fa-solid fa-layer-group"></i>Portfolio
+                </a>
+                <a href="MTP Request a Quote.html">
+                    <i class="fa-solid fa-file-invoice"></i>Request a Quote
+                </a>
+                <a href="MTP Contact Us.html"><i class="fa-solid fa-envelope"></i>Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="portfolio-inner-hero">
+            <div class="container">
+                <nav class="portfolio-breadcrumb" id="projectBreadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span aria-hidden="true">›</span>
+                    <a href="portfolio.html">Portfolio</a>
+                </nav>
+                <span class="portfolio-eyebrow">PROJECT CASE STUDY</span>
+                <h1 id="projectTitle">Loading project…</h1>
+                <a class="portfolio-project-category-link" id="projectCategory" href="portfolio.html"></a>
+                <a class="portfolio-live-website" id="projectWebsite" target="_blank"
+                    rel="noopener noreferrer" hidden>
+                    Visit the live website <i class="fa-solid fa-arrow-up-right-from-square"
+                        aria-hidden="true"></i>
+                </a>
+            </div>
+        </section>
+
+        <section class="portfolio-inner-content" id="projectContent">
+            <div class="container">
+                <div class="portfolio-inner-toolbar">
+                    <a class="portfolio-back-link" id="backToCategory" href="portfolio.html">
+                        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Category
+                    </a>
+                    <span class="project-status" id="projectStatus"></span>
+                </div>
+
+                <p class="project-detail-summary" id="projectSummary"></p>
+                <div class="project-detail-gallery" id="projectGallery"></div>
+                <p class="project-image-note" id="projectImageNote"></p>
+                <dl class="project-detail-grid" id="projectDetails"></dl>
+
+                <nav class="project-step-navigation" aria-label="Project navigation">
+                    <a class="project-step-link is-disabled" id="previousProject"
+                        aria-disabled="true">← Previous project</a>
+                    <a class="portfolio-back-link" id="projectBackCategory" href="portfolio.html">
+                        Back to Category
+                    </a>
+                    <a class="project-step-link is-disabled" id="nextProject"
+                        aria-disabled="true">Next project →</a>
+                </nav>
+            </div>
+        </section>
+
+        <section class="portfolio-empty-state portfolio-project-not-found" id="projectNotFound" hidden>
+            <div class="container">
+                <i class="fa-regular fa-folder-open" aria-hidden="true"></i>
+                <h2>Project not found</h2>
+                <p>This project may have moved or may not be available for publication.</p>
+                <a class="btn btn-primary" href="portfolio.html">Back to Portfolio</a>
+            </div>
+        </section>
+
+        <section class="portfolio-cta" aria-labelledby="projectCtaTitle">
+            <div class="container portfolio-cta-inner">
+                <div>
+                    <span class="portfolio-eyebrow">LET'S TALK ABOUT YOUR REQUIREMENTS</span>
+                    <h2 id="projectCtaTitle">Have a Project in Mind?</h2>
+                    <p>Contact MATSOGO TAU PROJECTS to discuss your next project.</p>
+                </div>
+                <div class="portfolio-cta-actions">
+                    <a class="btn btn-primary" href="MTP Request a Quote.html">
+                        Request a Quote <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a class="btn btn-outline" href="MTP Contact Us.html">Contact Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-column">
+                <a href="index.html" class="footer-logo">
+                    <img src="images/favicon.png" alt="MATSOGO TAU PROJECTS Logo">
+                    <div>
+                        <strong>MATSOGO TAU</strong>
+                        <span class="brand-legal">PROJECTS (PTY) LTD</span>
+                        <small>SUPPLY &bull; IT SERVICES &bull; SOLUTIONS</small>
+                    </div>
+                </a>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="MTP About Us.html">About Us</a>
+                <a href="MTP Service.html">Services</a>
+                <a href="MTP Projects.html">Projects</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="MTP Request a Quote.html">Request a Quote</a>
+                <a href="MTP Contact Us.html">Contact Us</a>
+            </div>
+            <div class="footer-column">
+                <h3>Services</h3>
+                <a href="MTP Service.html">CCTV Installation</a>
+                <a href="MTP Service.html">IT Support</a>
+                <a href="MTP Service.html">Website Development</a>
+                <a href="MTP Service.html">Computer Repairs</a>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <p><i class="fas fa-location-dot" aria-hidden="true"></i> Rustenburg, North West, South Africa</p>
+                <p><i class="fas fa-phone" aria-hidden="true"></i> +27 66 446 0568</p>
+                <p><i class="fas fa-envelope" aria-hidden="true"></i> info@matsogotauprojects.co.za</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="year"></span> MATSOGO TAU PROJECTS (PTY) LTD. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/27664460568" class="whatsapp-float" target="_blank"
+        rel="noopener noreferrer" aria-label="Chat with MATSOGO TAU PROJECTS on WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+
+    <script src="JS/Script.js"></script>
+    <script src="JS/PortfolioData.js"></script>
+    <script src="JS/PortfolioProject.js"></script>
+</body>
+
+</html>

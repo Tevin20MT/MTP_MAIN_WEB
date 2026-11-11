@@ -18,6 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
         menuBtn.addEventListener("click", () => {
 
             navLinks.classList.toggle("active");
+            menuBtn.setAttribute(
+                "aria-expanded",
+                String(navLinks.classList.contains("active"))
+            );
 
             const icon = menuBtn.querySelector("i");
 
@@ -57,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
             link.addEventListener("click", () => {
 
                 navLinks.classList.remove("active");
+                menuBtn.setAttribute("aria-expanded", "false");
 
                 const icon = menuBtn.querySelector("i");
 
@@ -96,8 +101,14 @@ document.addEventListener("DOMContentLoaded", () => {
             href.split("/").pop() || "index.html"
         ).trim().toLowerCase();
 
+        const isPortfolioPage =
+            ["portfolio.html", "portfolio-category.html", "portfolio-project.html"]
+                .includes(currentPage) &&
+            linkPage === "portfolio.html";
+
         const isCurrent =
             linkPage === currentPage ||
+            isPortfolioPage ||
             (currentPage === "" && linkPage === "index.html");
 
         link.classList.toggle("active", isCurrent);
