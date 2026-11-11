@@ -5402,3 +5402,13 @@ button {
         letter-spacing: -1.2px !important;
     }
 }
+
+.about-preview.about-values {
+    padding: 100px 0;
+}
+
+@media (max-width: 768px) {
+    .about-preview.about-values {
+        padding: 70px 0;
+    }
+}
